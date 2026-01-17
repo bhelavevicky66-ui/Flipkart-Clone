@@ -14,6 +14,16 @@ mainLogo.addEventListener("click", () => {
   }
 });
 
+let cartBtn = document.querySelector("#cart");
+cartBtn.addEventListener("click", () => {
+  let windowLoc = window.location.pathname.split("/").includes("pages");
+  if (windowLoc) {
+    window.location.href = `cart.html`;
+  } else {
+    window.location.href = `pages/cart.html`;
+  }
+});
+
 let search = document.querySelector("#searchbar input[type='text']");
 search.addEventListener("keyup", (event) => {
   event.preventDefault();
