@@ -29,6 +29,7 @@
   /* border:1px solid black; */
   font-weight: 500;
   font-size: 14px;
+  position: relative;
 }
 .main > img {
   width: 100%;
