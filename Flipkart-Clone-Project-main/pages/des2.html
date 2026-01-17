@@ -1,96 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="../style/nav-modal.css" />
-    <link rel="stylesheet" href="../style/info-footer.css" />
-    <link rel="stylesheet" href="../style/main-footer.css" />
-    <style>
-      #container {
-        /* border: 2px solid red; */
-        width: 70%;
-        padding: 20px;
-        display: flex;
-        margin: auto;
-        padding-top: 5rem;
-      }
-      #container img {
-        height: 400px;
-        /* padding: 20px; */
-        border-radius: 5px;
-      }
-      div1 {
-        /* border: 2px solid red; */
-        padding: 20px;
-        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-      }
-      h2 {
-        font-family: Arial, Helvetica, sans-serif;
-      }
-      div2 {
-        margin: 0px;
-        /* border: 2px solid gray; */
-        margin-left: 80px;
-        padding: 20px;
-        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-      }
 
-      div5 {
-        display: flex;
-        gap: 20px;
-        /* border: 2px solid blue; */
-        font-size: 20px;
-      }
-      div5 > s {
-        margin-top: 19px;
-        font-size: 20px;
-      }
-      div3 {
-        height: 40px;
-        width: 100%;
-      }
-      #btndiv {
-        width: 70%;
-        margin: auto;
-        margin-bottom: 3rem;
-      }
-      #btn1 {
-        background-color: orange;
-        color: white;
-        font-size: 20px;
-        padding: 5px;
-        height: 60px;
-        cursor: pointer;
-        width: 200px;
-        border: none;
-      }
-      #btn2 {
-        background-color: rgb(230, 91, 5);
-        color: white;
-        font-size: 20px;
-        padding: 5px;
-        height: 60px;
-        width: 200px;
-        border: none;
-        cursor: pointer;
-      }
-    </style>
-  </head>
-  <body>
-    <header id="navbar"></header>
-    <div id="container"></div>
-    <div id="btndiv">
-      <button id="btn1">Add to Cart</button>
-      <button id="btn2">BUY</button>
-    </div>
-    <footer>
-      <div id="info-footer"></div>
-      <div id="main-footer"></div>
-    </footer>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="../style/nav-modal.css" />
+  <link rel="stylesheet" href="../style/info-footer.css" />
+  <link rel="stylesheet" href="../style/main-footer.css" />
+  <style>
+    #container {
+      /* border: 2px solid red; */
+      width: 70%;
+      padding: 20px;
+      display: flex;
+      margin: auto;
+      padding-top: 5rem;
+    }
+
+    #container img {
+      height: 400px;
+      /* padding: 20px; */
+      border-radius: 5px;
+    }
+
+    div1 {
+      /* border: 2px solid red; */
+      padding: 20px;
+      box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    }
+
+    h2 {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    div2 {
+      margin: 0px;
+      /* border: 2px solid gray; */
+      margin-left: 80px;
+      padding: 20px;
+      box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    }
+
+    div5 {
+      display: flex;
+      gap: 20px;
+      /* border: 2px solid blue; */
+      font-size: 20px;
+    }
+
+    div5>s {
+      margin-top: 19px;
+      font-size: 20px;
+    }
+
+    div3 {
+      height: 40px;
+      width: 100%;
+    }
+
+    #btndiv {
+      width: 70%;
+      margin: auto;
+      margin-bottom: 3rem;
+    }
+
+    #btn1 {
+      background-color: orange;
+      color: white;
+      font-size: 20px;
+      padding: 5px;
+      height: 60px;
+      cursor: pointer;
+      width: 200px;
+      border: none;
+    }
+
+    #btn2 {
+      background-color: rgb(230, 91, 5);
+      color: white;
+      font-size: 20px;
+      padding: 5px;
+      height: 60px;
+      width: 200px;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <header id="navbar"></header>
+  <div id="container"></div>
+  <div id="btndiv">
+    <button id="btn1">Add to Cart</button>
+    <button id="btn2">BUY</button>
+  </div>
+  <footer>
+    <div id="info-footer"></div>
+    <div id="main-footer"></div>
+  </footer>
+</body>
+
 </html>
 <script type="module">
   let infoFoo = document.querySelector("#info-footer");
@@ -181,6 +193,15 @@
   // console.log(add2cart)
   add2cart.onclick = () => {
     window.location.href = "cart.html";
+    product.push(go_data[0]);
+    go_data[0].qty = 1;
+
+    localStorage.setItem("product", JSON.stringify(product));
+  };
+
+  let buyNow = document.querySelector("#btn2");
+  buyNow.onclick = () => {
+    window.location.href = "payment.html";
     product.push(go_data[0]);
     go_data[0].qty = 1;
 
