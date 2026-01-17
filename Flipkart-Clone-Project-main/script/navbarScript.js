@@ -25,17 +25,30 @@ cartBtn.addEventListener("click", () => {
 });
 
 let search = document.querySelector("#searchbar input[type='text']");
+let searchBtn = document.querySelector("#searchbar button");
+
+let searchFunction = () => {
+  let val = search.value.trim().toLowerCase();
+  if (val) {
+    let windowLoc = window.location.pathname.split("/").includes("pages");
+    if (windowLoc) {
+      window.location.href = `${val}.html`;
+    } else {
+      window.location.href = `pages/${val}.html`;
+    }
+  }
+};
+
 search.addEventListener("keyup", (event) => {
   event.preventDefault();
   if (event.keyCode === 13) {
-    let windowLoc = window.location.pathname.split("/").includes("pages");
-
-    if (windowLoc) {
-      window.location.href = `${search.value.trim()}.html`;
-    } else {
-      window.location.href = `pages/${search.value.trim()}.html`;
-    }
+    searchFunction();
   }
+});
+
+searchBtn.addEventListener("click", (event) => {
+  event.preventDefault();
+  searchFunction();
 });
 
 let Modal = (op) => {
